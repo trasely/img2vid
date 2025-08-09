@@ -1,0 +1,661 @@
+{
+  "id": "7f278d6a-693d-4524-89d3-1c2336b5aa10",
+  "revision": 0,
+  "last_node_id": 82,
+  "last_link_id": 130,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "VAELoader",
+      "pos": [
+        1861.5491943359375,
+        -4878.8916015625
+      ],
+      "size": [
+        338.482177734375,
+        62.55342483520508
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.22",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "BasicScheduler",
+      "pos": [
+        2791.521484375,
+        -4840.291015625
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "beta",
+        50,
+        1
+      ]
+    },
+    {
+      "id": 62,
+      "type": "KSamplerSelect",
+      "pos": [
+        2795.509033203125,
+        -4974.5556640625
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            75
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ]
+    },
+    {
+      "id": 65,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        3259.9697265625,
+        -5339.9482421875
+      ],
+      "size": [
+        326.41400146484375,
+        434.41400146484375
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 73
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 129
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 75
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 76
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 89
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            82
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 70,
+      "type": "RescaleCFG",
+      "pos": [
+        2341.738037109375,
+        -5676.66943359375
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 130
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            92,
+            126
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
+        "Node name for S&R": "RescaleCFG"
+      },
+      "widgets_values": [
+        0.7000000000000002
+      ]
+    },
+    {
+      "id": 69,
+      "type": "EmptyLatentImage",
+      "pos": [
+        2788.224365234375,
+        -4669.70068359375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            89
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAEDecode",
+      "pos": [
+        2773.10009765625,
+        -5535.10888671875
+      ],
+      "size": [
+        340,
+        50
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 82
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            65
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.22",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "PreviewImage",
+      "pos": [
+        3634.564453125,
+        -5626.45458984375
+      ],
+      "size": [
+        894.4630126953125,
+        720.0117797851562
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 65
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.22",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 81,
+      "type": "CFGGuider",
+      "pos": [
+        2791.723876953125,
+        -5375.43603515625
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 126
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 127
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 128
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            129
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.30",
+        "Node name for S&R": "CFGGuider"
+      },
+      "widgets_values": [
+        4.5
+      ]
+    },
+    {
+      "id": 75,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2282.292236328125,
+        -5482.5966796875
+      ],
+      "size": [
+        410.575439453125,
+        301.7882080078125
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            127
+          ]
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.22",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A retro 3D render styled like a Tekken 3 screenshot on the original PlayStation. Megumin from Konosuba faces off against Lumine from Genshin Impact in a dynamic mid-fight pose—Megumin mid-air in a dramatic kick, her cape flaring, while Lumine counters with a defensive stance, sword raised. Both characters are rendered in low-poly models (300–500 polygons), with pixelated, flat-textured outfits and blocky, stiff animations typical of late-90s fighters. Megumin’s hat and cloak are rigid with segmented edges; Lumine’s flowing hair is simplified into angular strands with tiled textures. The arena is a static 2.5D background—an industrial neon-lit stage with a flat, tiled floor and low-res audience textures.\n\nLighting is stark and contrasty, with visible pixelation, jagged edges, and slight texture warping. HUD elements appear in bold yellow/red arcade-style fonts: health bars, character names (“MEGUMIN” and “LUMINE”), and timer at the top. The image has the raw look of a CRT-era PlayStation game—no warm earth-tone tints, no filters, cool color tones only, and possibly faint scanlines."
+      ]
+    },
+    {
+      "id": 61,
+      "type": "RandomNoise",
+      "pos": [
+        2790.010009765625,
+        -5144.70751953125
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        956690261611709,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2293.59326171875,
+        -5028.224609375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            128
+          ]
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.22",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 82,
+      "type": "UnetLoaderGGUFDisTorchMultiGPU",
+      "pos": [
+        1756.75927734375,
+        -5646.375
+      ],
+      "size": [
+        378,
+        154
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            130
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-multigpu",
+        "ver": "a05823ff0a5296332ae478b18ab93b46cd996a44",
+        "Node name for S&R": "UnetLoaderGGUFDisTorchMultiGPU"
+      },
+      "widgets_values": [
+        "chroma-unlocked-v27-Q8_0.gguf",
+        "cuda:0",
+        4,
+        false,
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      9,
+      11,
+      0,
+      10,
+      1,
+      "VAE"
+    ],
+    [
+      65,
+      10,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      61,
+      0,
+      65,
+      0,
+      "NOISE"
+    ],
+    [
+      75,
+      62,
+      0,
+      65,
+      2,
+      "SAMPLER"
+    ],
+    [
+      76,
+      63,
+      0,
+      65,
+      3,
+      "SIGMAS"
+    ],
+    [
+      82,
+      65,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      89,
+      69,
+      0,
+      65,
+      4,
+      "LATENT"
+    ],
+    [
+      92,
+      70,
+      0,
+      63,
+      0,
+      "MODEL"
+    ],
+    [
+      126,
+      70,
+      0,
+      81,
+      0,
+      "MODEL"
+    ],
+    [
+      127,
+      75,
+      0,
+      81,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      128,
+      5,
+      0,
+      81,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      129,
+      81,
+      0,
+      65,
+      1,
+      "GUIDER"
+    ],
+    [
+      130,
+      82,
+      0,
+      70,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6934334949441505,
+      "offset": [
+        -1623.6320703985357,
+        5897.305351785511
+      ]
+    },
+    "frontendVersion": "1.17.11",
+    "node_versions": {
+      "comfy-core": "0.3.19"
+    },
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
